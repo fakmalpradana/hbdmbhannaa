@@ -41,7 +41,17 @@ body {
   font-size: 3rem;
 }
 
+
 .four .text-box {
+  border: 3px solid #aaa;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  width: 600px;
+}
+
+.secret-notes .text-box {
   border: 3px solid #aaa;
   border-radius: 5px;
   margin: 0 auto;
@@ -74,6 +84,18 @@ body {
   left: 0;
   position: absolute;
   right: 0;
+}
+
+.idea-1 {
+  top: 0; /* Position idea-1 at the top */
+}
+
+.idea-1-1 {
+  font-size: 1rem !important; /* Smaller font size for idea-1-1 */
+  top: 7rem; /* Position idea-1-1 below idea-1, adjust this value as needed */
+  left: 0;
+  right: 0;
+  position: absolute;
 }
 
 .idea-3 strong {
@@ -259,6 +281,10 @@ body {
     width: 90%;
   }
 
+  .secret-notes .text-box {
+    width: 90%;
+  }
+
   .text-box .fake-btn {
     bottom: -38px;
     right: 5px;
@@ -290,3 +316,4 @@ body {
     font-weight: lighter;
   }
 }
+

@@ -1,13 +1,13 @@
 // trigger to play music in the background with sweetalert
 window.addEventListener('load', () => {
     Swal.fire({
-        title: 'Do you want to play music in the background?',
+        title: 'mau pake musik, biar asik?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No',
+        confirmButtonText: 'Yaa',
+        cancelButtonText: 'Ndak dulu',
     }).then((result) => {
         if (result.isConfirmed) {
             document.querySelector('.song').play();
@@ -23,9 +23,14 @@ window.addEventListener('load', () => {
 const animationTimeline = () => {
     // split chars that needs to be animated individually
     const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
+    const textBoxChars1 = document.getElementsByClassName("hbd-chatbox2")[0];
     const hbd = document.getElementsByClassName("wish-hbd")[0];
 
     textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
+        .split("")
+        .join("</span><span>")}</span>`;
+    
+    textBoxChars1.innerHTML = `<span>${textBoxChars1.innerHTML
         .split("")
         .join("</span><span>")}</span>`;
 
@@ -114,7 +119,9 @@ const animationTimeline = () => {
         },
     "+=1")
     .from(".idea-1", 0.7, ideaTextTrans)
+    .from(".idea-1-1", 0.7, ideaTextTrans)
     .to(".idea-1", 0.7, ideaTextTransLeave, "+=2.5")
+    .to(".idea-1-1", 0.7, ideaTextTransLeave)
     .from(".idea-2", 0.7, ideaTextTrans)
     .to(".idea-2", 0.7, ideaTextTransLeave, "+=2.5")
     .from(".idea-3", 0.7, ideaTextTrans)
@@ -254,7 +261,26 @@ const animationTimeline = () => {
         opacity: 0,
         y: 30,
         zIndex: "-1",
+    }) 
+    .from(".secret-notes", 0.7, {
+        scale: 0.2,
+        opacity: 0,
     })
+    .staggerTo(
+        ".hbd-chatbox2 span",
+        1.5, {
+            visibility: "visible",
+        },
+        0.05
+    )
+    .to(
+        ".secret-notes",
+        0.5, {
+            scale: 0.2,
+            opacity: 0,
+            y: -150
+        },
+    "+=1")
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
     .to(
         ".last-smile",
